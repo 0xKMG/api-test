@@ -5,18 +5,14 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
 
   @Get('totalvalue')
-  getTotalValue(): number {
-    return this.appService.getTotalValue();
+  async getTotalValue(): Promise<string> {
+    return await this.appService.getTotalValue();
   }
 
   @Get('totalsupply')
-  getTotalSupply(): number {
-    return this.appService.getTotalSupply();
+  async getTotalSupply(): Promise<string> {
+    return await this.appService.getTotalSupply();
   }
 }
